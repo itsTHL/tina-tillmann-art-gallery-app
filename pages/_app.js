@@ -1,6 +1,7 @@
 import GlobalStyle from "../styles";
 import { SWRConfig } from "swr";
 import Layout from "@/components/Layout/Layout";
+import "../components/Navigation/Navigation.css";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
