@@ -1,10 +1,9 @@
 import ArtPiecePreview from "@/components/ArtPiecePreview";
-import Spotlight from "../components/Spotlight/Spotlight";
 
-export default function ArtPieces({ pieces }) {
+export default function ArtPieces({ data }) {
   return (
     <ul>
-      {pieces.map((piece) => (
+      {data.map((piece) => (
         <li key={piece.slug}>
           <ArtPiecePreview
             image={piece.imageSource}
