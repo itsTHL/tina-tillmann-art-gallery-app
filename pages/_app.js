@@ -1,5 +1,6 @@
 import GlobalStyle from "../styles";
 import { SWRConfig } from "swr";
+import Layout from "@/components/Layout/Layout";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -12,8 +13,10 @@ export default function App({ Component, pageProps }) {
           // refreshInterval: 1000,
         }}
       >
-        <GlobalStyle />
-        <Component {...pageProps} />
+        <Layout>
+          <GlobalStyle />
+          <Component {...pageProps} />
+        </Layout>
       </SWRConfig>
     </>
   );
