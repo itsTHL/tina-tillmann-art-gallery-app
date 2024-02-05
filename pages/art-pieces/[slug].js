@@ -1,12 +1,12 @@
-import ArtPieceDetails from "@/components/ArtPieceDetails";
+import ArtPieceDetails from "@/components/ArtPieceDetails/ArtPieceDetails";
+import { useRouter } from "next/router";
 import Link from "next/link";
-import useRouter from "next/router";
 
-export default function ArtPieceDetailPage() {
+export default function ArtPieceDetailPage({ data }) {
   const router = useRouter();
   const { slug } = router.query;
 
-  const currentArtPiece = artPieces.find((artPiece) => artPiece.slug === slug);
+  const currentArtPiece = data.find((artPiece) => artPiece.slug === slug);
 
   if (!currentArtPiece) {
     return (
@@ -19,18 +19,17 @@ export default function ArtPieceDetailPage() {
     );
   }
 
-  const { image, title, artist, year, genre } = currentArtPiece;
+  const { imageSource, name, artist, year, genre } = currentArtPiece;
 
   return (
     <>
       <ArtPieceDetails
-        image={image}
-        title={title}
+        image={imageSource}
+        title={name}
         artist={artist}
         year={year}
         genre={genre}
       />
-      <Link href="">Back to the art gallery</Link>
     </>
   );
 }

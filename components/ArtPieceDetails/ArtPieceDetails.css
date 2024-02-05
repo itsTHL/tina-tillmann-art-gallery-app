@@ -1,6 +1,8 @@
 .art-piece-details {
+  margin: 50px auto;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 35px;
   align-items: center;
 }
 
@@ -10,6 +12,15 @@
   justify-content: center;
 }
 
+.button-section {
+  display: flex;
+  justify-content: center;
+}
+
 h3 {
   font-weight: bolder;
+}
+
+button {
+  text-align: center;
 }

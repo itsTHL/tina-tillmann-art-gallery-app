@@ -1,7 +1,9 @@
+import useSWR from "swr";
 import GlobalStyle from "../styles";
 import Layout from "@/components/Layout/Layout";
 import "../components/Navigation/Navigation.css";
-import useSWR from "swr";
+import "../components/ArtPieces/ArtPieces.css";
+import "../components/ArtPieceDetails/ArtPieceDetails.css";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
