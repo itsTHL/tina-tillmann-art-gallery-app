@@ -1,4 +1,6 @@
 import GlobalStyle from "../styles";
+import Layout from "@/components/Layout/Layout";
+import "../components/Navigation/Navigation.css";
 import useSWR from "swr";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
@@ -14,8 +16,10 @@ export default function App({ Component, pageProps }) {
 
   return (
     <>
-      <GlobalStyle />
-      <Component {...pageProps} data={data} />
+      <Layout>
+        <GlobalStyle />
+        <Component {...pageProps} data={data} />
+      </Layout>
     </>
   );
 }
