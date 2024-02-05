@@ -1,9 +1,9 @@
 import ArtPiecePreview from "@/components/ArtPiecePreview";
-import Spotlight from "../components/Spotlight/Spotlight";
+import "./ArtPieces.css";
 
 export default function ArtPieces({ pieces }) {
   return (
-    <ul>
+    <ul className="art-pieces-list">
       {pieces.map((piece) => (
         <li key={piece.slug}>
           <ArtPiecePreview
