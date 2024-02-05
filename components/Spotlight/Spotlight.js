@@ -36,6 +36,8 @@ export default function Spotlight() {
       <Image
         src={randomPiece.imageSource}
         alt={`${randomPiece.genre} with title${randomPiece.name}`}
+        height={randomPiece.dimensions.height}
+        width={randomPiece.dimensions.width}
       />
       <p>{randomPiece.artist}</p>
     </>
