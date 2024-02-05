@@ -1,5 +1,6 @@
 import useSWR from "swr";
 import ArtPiecePreview from "@/components/ArtPiecePreview";
+import Spotlight from "../components/Spotlight/Spotlight";
 
 export default function ArtPieces({ pieces }) {
   const { data, error, isLoading } = useSWR(
@@ -11,6 +12,7 @@ export default function ArtPieces({ pieces }) {
 
   return (
     <>
+      <Spotlight />
       <ul>
         {data.map((piece) => (
           <li key={piece.slug}>
