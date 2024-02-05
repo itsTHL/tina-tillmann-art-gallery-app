@@ -1,8 +1,8 @@
 import useSWR from "swr";
-import ArtPiecePreview from "@/components/ArtPiecePreview";
+import ArtPieces from "@/components/ArtPieces";
 import Spotlight from "../components/Spotlight/Spotlight";
 
-export default function ArtPieces({ pieces }) {
+export default function Homepage({ pieces }) {
   const { data, error, isLoading } = useSWR(
     "https://example-apis.vercel.app/api/art"
   );
@@ -12,20 +12,9 @@ export default function ArtPieces({ pieces }) {
 
   return (
     <>
+      <h1>Art Gallery</h1>
       <Spotlight />
-      <ul>
-        {data.map((piece) => (
-          <li key={piece.slug}>
-            <ArtPiecePreview
-              image={piece.imageSource}
-              title={piece.title}
-              artist={piece.artist}
-              height={piece.dimensions.height}
-              width={piece.dimensions.width}
-            />
-          </li>
-        ))}
-      </ul>
+      <ArtPieces pieces={data} />
     </>
   );
 }
