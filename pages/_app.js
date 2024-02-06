@@ -5,11 +5,8 @@ import Layout from "@/components/Layout/Layout";
 import "../components/Navigation/Navigation.css";
 import "../components/ArtPieces/ArtPieces.css";
 import "../components/ArtPieceDetails/ArtPieceDetails.css";
-<<<<<<< HEAD
 import "../components/ArtPiecePreview/ArtPiecePreview.css";
-=======
 import "../components/FavoriteButton/FavoriteButton.css";
->>>>>>> main
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
