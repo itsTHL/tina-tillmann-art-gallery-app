@@ -52,6 +52,7 @@ const formattedTime = now.toLocaleTimeString("en-us", timeOptions);
     )
   );
     console.log(comment);
+    
   }
 
   return (
