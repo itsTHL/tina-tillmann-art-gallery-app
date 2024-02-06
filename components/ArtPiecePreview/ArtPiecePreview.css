@@ -1,0 +1,25 @@
+.art-piece-preview__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 250px;
+  max-height: 350px;
+  position: relative;
+}
+
+.art-piece-preview__img {
+  width: 250px;
+  object-fit: contain;
+  position: absolute;
+}
+
+.art-piece-preview__title {
+  z-index: -1;
+  position: absolute;
+  bottom: 50px;
+}
+
+.art-piece-preview__artist {
+  z-index: -1;
+}

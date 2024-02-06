@@ -4,6 +4,7 @@ import Layout from "@/components/Layout/Layout";
 import "../components/Navigation/Navigation.css";
 import "../components/ArtPieces/ArtPieces.css";
 import "../components/ArtPieceDetails/ArtPieceDetails.css";
+import "../components/ArtPiecePreview/ArtPiecePreview.css";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 

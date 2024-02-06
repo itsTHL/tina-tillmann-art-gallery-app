@@ -1,4 +1,4 @@
-import ArtPiecePreview from "@/components/ArtPiecePreview";
+import ArtPiecePreview from "../ArtPiecePreview/ArtPiecePreview";
 import Link from "next/link";
 
 export default function ArtPieces({ data }) {
