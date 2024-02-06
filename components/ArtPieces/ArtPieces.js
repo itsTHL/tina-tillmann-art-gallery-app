@@ -9,10 +9,6 @@ export default function ArtPieces({
   return (
     <ul className="art-pieces-list">
       {data.map((piece) => {
-        // const { isFavorite } = artPiecesInfo.find(
-        //   (artPiece) => artPiece.slug === piece.slug
-        // ) ?? { isFavorite: false };
-
         return (
           <li key={piece.slug}>
             <ArtPiecePreview
@@ -24,6 +20,7 @@ export default function ArtPieces({
               width={piece.dimensions.width}
               isFavorite={isFavorite}
               onToggleFavorite={onToggleFavorite}
+              artPiecesInfo={artPiecesInfo}
             />
           </li>
         );
