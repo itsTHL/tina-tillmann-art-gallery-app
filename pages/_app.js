@@ -1,6 +1,5 @@
 import useSWR from "swr";
 import { useState } from "react";
-import { useRouter } from "next/router";
 import GlobalStyle from "../styles";
 import Layout from "@/components/Layout/Layout";
 import "../components/Navigation/Navigation.css";
@@ -17,7 +16,7 @@ export default function App({ Component, pageProps }) {
     fetcher
   );
 
-  const router = useRouter();
+  console.log("fetched data: ", data);
 
   // SETTING STATE FOR FAVORITE COMPONENT
   const [artPiecesInfo, setArtPiecesInfo] = useState([]);
@@ -25,8 +24,6 @@ export default function App({ Component, pageProps }) {
   function toggleFavorite() {
     setArtPiecesInfo((artPiecesInfo) => {
       //
-
-      const { slug } = router.query;
       // finding correct art piece
       const artPiece = artPiecesInfo.find((artPiece) => artPiece.slug === slug);
 
