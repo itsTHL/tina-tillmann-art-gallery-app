@@ -33,6 +33,7 @@ export default function ArtPieceDetailPage({
         artist={artist}
         year={year}
         genre={genre}
+        slug={slug}
         isFavorite={isFavorite}
         onToggleFavorite={onToggleFavorite}
       />

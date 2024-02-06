@@ -16,12 +16,15 @@ export default function App({ Component, pageProps }) {
     fetcher
   );
 
-  console.log("fetched data: ", data);
-
   // SETTING STATE FOR FAVORITE COMPONENT
   const [artPiecesInfo, setArtPiecesInfo] = useState([]);
+  console.log("state: ", artPiecesInfo);
 
-  function toggleFavorite() {
+  const isFavorite = artPiecesInfo.find(
+    (artPiece) => artPiece.slug === artPiece.slug
+  ) ?? { isFavorite: false };
+
+  function toggleFavorite(slug) {
     setArtPiecesInfo((artPiecesInfo) => {
       //
       // finding correct art piece
@@ -53,6 +56,7 @@ export default function App({ Component, pageProps }) {
           data={data}
           artPiecesInfo={artPiecesInfo}
           onToggleFavorite={toggleFavorite}
+          isFavorite={isFavorite}
         />
       </Layout>
     </>

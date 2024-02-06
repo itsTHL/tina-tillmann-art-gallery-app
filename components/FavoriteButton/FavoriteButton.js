@@ -1,10 +1,15 @@
 // import EmptyStar from "../../resources/assets/star_empty.png";
 import Image from "next/image";
 
-export default function FavoriteButton({ isFavorite, onToggleFavorite }) {
+export default function FavoriteButton({ slug, isFavorite, onToggleFavorite }) {
   return (
     <>
-      <button type="button" className="fav-btn" onClick={onToggleFavorite}>
+      <button
+        type="button"
+        className="fav-btn"
+        slug={slug}
+        onClick={onToggleFavorite}
+      >
         {isFavorite ? (
           <Image
             src="/star_empty.png"
