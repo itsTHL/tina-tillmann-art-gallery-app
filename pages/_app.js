@@ -20,6 +20,11 @@ export default function App({ Component, pageProps }) {
   const [artPiecesInfo, setArtPiecesInfo] = useState([]);
   console.log("state: ", artPiecesInfo);
 
+  const pieces = artPiecesInfo.filter(
+    (artPieceObj) => artPieceObj.isFavorite === true
+  );
+  console.log("pieces: ", pieces);
+
   function toggleFavorite(slug) {
     setArtPiecesInfo((artPiecesInfo) => {
       //
@@ -51,6 +56,7 @@ export default function App({ Component, pageProps }) {
           {...pageProps}
           data={data}
           artPiecesInfo={artPiecesInfo}
+          pieces={pieces}
           onToggleFavorite={toggleFavorite}
         />
       </Layout>
