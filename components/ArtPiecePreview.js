@@ -10,6 +10,7 @@ export default function ArtPiecePreview({
   height,
   width,
   isFavorite,
+  artPiecesInfo,
   onToggleFavorite,
 }) {
   return (
@@ -17,7 +18,7 @@ export default function ArtPiecePreview({
       <div>
         <FavoriteButton
           onToggleFavorite={() => onToggleFavorite(slug)}
-          isFavorite={isFavorite}
+          artPiecesInfo={artPiecesInfo}
         />
         <Link href={`/art-pieces/${slug}`}>
           <Image src={image} height={height} width={width} alt="An art piece" />

@@ -11,6 +11,7 @@ export default function ArtPieceDetails({
   slug,
   isFavorite,
   onToggleFavorite,
+  artPiecesInfo,
 }) {
   const router = useRouter();
   console.log(isFavorite);
@@ -19,6 +20,7 @@ export default function ArtPieceDetails({
       <section className="art-piece-details">
         <FavoriteButton
           isFavorite={isFavorite}
+          artPiecesInfo={artPiecesInfo}
           onToggleFavorite={() => onToggleFavorite(slug)}
         />
         <Image

@@ -2,7 +2,12 @@ import Image from "next/image";
 import FavoriteButton from "../FavoriteButton/FavoriteButton";
 import React, { useState, useEffect } from "react";
 
-export default function Spotlight({ data, onToggleFavorite, isFavorite }) {
+export default function Spotlight({
+  data,
+  onToggleFavorite,
+  isFavorite,
+  artPiecesInfo,
+}) {
   const [randomIndex, setRandomIndex] = useState(null);
   const [randomPiece, setRandomPiece] = useState(null);
 
@@ -36,6 +41,7 @@ export default function Spotlight({ data, onToggleFavorite, isFavorite }) {
       <p>{randomPiece.artist}</p>
       <FavoriteButton
         isFavorite={isFavorite}
+        artPiecesInfo={artPiecesInfo}
         onToggleFavorite={() => onToggleFavorite(randomPiece.slug)}
       />
     </>

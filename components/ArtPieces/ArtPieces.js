@@ -18,7 +18,7 @@ export default function ArtPieces({
               artist={piece.artist}
               height={piece.dimensions.height}
               width={piece.dimensions.width}
-              isFavorite={isFavorite}
+              artPiecesInfo={artPiecesInfo}
               onToggleFavorite={onToggleFavorite}
             />
           </li>
