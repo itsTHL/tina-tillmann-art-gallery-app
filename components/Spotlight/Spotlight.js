@@ -28,7 +28,7 @@ export default function Spotlight({ data, toggleFavorite }) {
         width={randomPiece.dimensions.width}
       />
       <p>{randomPiece.artist}</p>
-      <FavoriteButton onToggleFavorite={toggleFavorite} />
+      <FavoriteButton />
     </>
   );
 }
