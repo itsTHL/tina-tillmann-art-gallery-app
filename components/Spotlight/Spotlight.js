@@ -1,5 +1,4 @@
 import Image from "next/image";
-import useSWR from "swr";
 
 export default function Spotlight({ data }) {
   if (!data) {

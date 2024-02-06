@@ -16,11 +16,25 @@ export default function App({ Component, pageProps }) {
   if (error) return <h1>failed to load</h1>;
   if (isLoading) return <h1>loading...</h1>;
 
+  // adds data from comments to artPieceInfo-State
+  function handleAddComment(comment) {
+    const date = new Date().toLocaleDateString("en-us", {
+      dateStyle: "medium",
+    });
+    const time = (comment.date = date);
+    // setEntries([newEntry, ...entries]);
+    console.log(comment);
+  }
+
   return (
     <>
       <Layout>
         <GlobalStyle />
-        <Component {...pageProps} data={data} />
+        <Component
+          {...pageProps}
+          data={data}
+          onSubmitComment={handleAddComment}
+        />
       </Layout>
     </>
   );
