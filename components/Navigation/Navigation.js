@@ -1,10 +1,32 @@
+import { useRouter } from "next/router";
+
 export default function Navigation() {
+  const router = useRouter();
+
   return (
     <>
       <nav>
-        <button>Spotlight</button>
-        <button>All Art Pices</button>
-        <button>Favorites</button>
+        <button
+          onClick={() => {
+            router.push("/");
+          }}
+        >
+          Spotlight
+        </button>
+        <button
+          onClick={() => {
+            router.push("/art-pieces");
+          }}
+        >
+          Gallery
+        </button>
+        <button
+          onClick={() => {
+            router.push("/favorites");
+          }}
+        >
+          Favorites
+        </button>
       </nav>
     </>
   );
