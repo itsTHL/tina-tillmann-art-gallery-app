@@ -1,12 +1,26 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
+import FavoriteButton from "../FavoriteButton/FavoriteButton";
 
-export default function ArtPieceDetails({ image, title, artist, year, genre }) {
+export default function ArtPieceDetails({
+  image,
+  title,
+  artist,
+  year,
+  genre,
+  slug,
+  isFavorite,
+  onToggleFavorite,
+}) {
   const router = useRouter();
-
+  console.log(isFavorite);
   return (
     <>
       <section className="art-piece-details">
+        <FavoriteButton
+          isFavorite={isFavorite}
+          onToggleFavorite={() => onToggleFavorite(slug)}
+        />
         <Image
           src={image}
           alt={`${title} by ${artist}`}
