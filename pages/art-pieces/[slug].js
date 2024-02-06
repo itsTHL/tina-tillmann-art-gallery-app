@@ -4,7 +4,6 @@ import Link from "next/link";
 
 export default function ArtPieceDetailPage({
   data,
-  isFavorite,
   onToggleFavorite,
   artPiecesInfo,
 }) {
@@ -35,7 +34,6 @@ export default function ArtPieceDetailPage({
         year={year}
         genre={genre}
         slug={slug}
-        isFavorite={isFavorite}
         artPiecesInfo={artPiecesInfo}
         onToggleFavorite={onToggleFavorite}
       />

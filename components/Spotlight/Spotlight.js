@@ -5,8 +5,8 @@ import React, { useState, useEffect } from "react";
 export default function Spotlight({
   data,
   onToggleFavorite,
-  isFavorite,
   artPiecesInfo,
+  slug,
 }) {
   const [randomIndex, setRandomIndex] = useState(null);
   const [randomPiece, setRandomPiece] = useState(null);
@@ -40,7 +40,7 @@ export default function Spotlight({
       />
       <p>{randomPiece.artist}</p>
       <FavoriteButton
-        isFavorite={isFavorite}
+        slug={randomPiece.slug}
         artPiecesInfo={artPiecesInfo}
         onToggleFavorite={() => onToggleFavorite(randomPiece.slug)}
       />

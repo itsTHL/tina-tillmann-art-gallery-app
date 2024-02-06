@@ -9,7 +9,6 @@ export default function ArtPieceDetails({
   year,
   genre,
   slug,
-  isFavorite,
   onToggleFavorite,
   artPiecesInfo,
 }) {
@@ -19,7 +18,7 @@ export default function ArtPieceDetails({
     <>
       <section className="art-piece-details">
         <FavoriteButton
-          isFavorite={isFavorite}
+          slug={slug}
           artPiecesInfo={artPiecesInfo}
           onToggleFavorite={() => onToggleFavorite(slug)}
         />

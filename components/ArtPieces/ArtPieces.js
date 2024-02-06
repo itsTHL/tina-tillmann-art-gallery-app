@@ -1,11 +1,6 @@
 import ArtPiecePreview from "@/components/ArtPiecePreview";
 
-export default function ArtPieces({
-  data,
-  artPiecesInfo,
-  onToggleFavorite,
-  isFavorite,
-}) {
+export default function ArtPieces({ data, artPiecesInfo, onToggleFavorite }) {
   return (
     <ul className="art-pieces-list">
       {data.map((piece) => {
