@@ -20,7 +20,7 @@ export default function ArtPiecePreview({
           isFavorite={isFavorite}
           slug={slug}
         />
-        <Link href={`/art-pieces/[slug]`}>
+        <Link href={`/art-pieces/${slug}`}>
           <Image src={image} height={height} width={width} alt="An art piece" />
         </Link>
         <p>{title}</p>
