@@ -1,5 +1,6 @@
 import useSWR from "swr";
 import { useState } from "react";
+import { useRouter } from "next/router";
 import GlobalStyle from "../styles";
 import Layout from "@/components/Layout/Layout";
 import "../components/Navigation/Navigation.css";
@@ -16,29 +17,30 @@ export default function App({ Component, pageProps }) {
     fetcher
   );
 
-  // SETTING STATE FOR FAVORITE COMPONENT
-  const [artPiecesInfo, setArtPiecesInfo] = useState({ isFavorite: false });
-  console.log(artPiecesInfo);
+  const router = useRouter();
 
-  function toggleFavorite(artPieceSlug) {
+  // SETTING STATE FOR FAVORITE COMPONENT
+  const [artPiecesInfo, setArtPiecesInfo] = useState([]);
+
+  function toggleFavorite() {
     setArtPiecesInfo((artPiecesInfo) => {
+      //
+
+      const { slug } = router.query;
       // finding correct art piece
-      const artPiece = artPiecesInfo.find(
-        (artPiece) => artPiece.slug === artPieceSlug
-      );
+      const artPiece = artPiecesInfo.find((artPiece) => artPiece.slug === slug);
 
       // if art piece is already in state, toggle isFavorite property
       if (artPiece) {
         return artPiecesInfo.map((artPiece) =>
-          artPiece.slug === artPieceSlug
+          artPiece.slug === slug
             ? { ...artPiece, isFavorite: !artPiece.isFavorite }
             : artPiece
         );
       }
 
       // if art piece is not in state, add isFavorite key with value of true
-
-      return [...artPiecesInfo, { slug, isFavorite: true }];
+      return [...artPiecesInfo, { slug: slug, isFavorite: true }];
     });
   }
 
@@ -49,7 +51,12 @@ export default function App({ Component, pageProps }) {
     <>
       <Layout>
         <GlobalStyle />
-        <Component {...pageProps} data={data} onToggle={toggleFavorite} />
+        <Component
+          {...pageProps}
+          data={data}
+          artPiecesInfo={artPiecesInfo}
+          onToggleFavorite={toggleFavorite}
+        />
       </Layout>
     </>
   );
