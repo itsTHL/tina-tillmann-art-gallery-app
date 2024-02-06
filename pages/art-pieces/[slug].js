@@ -2,7 +2,12 @@ import ArtPieceDetails from "@/components/ArtPieceDetails/ArtPieceDetails";
 import { useRouter } from "next/router";
 import Link from "next/link";
 
-export default function ArtPieceDetailPage({ data, onSubmitComment }) {
+export default function ArtPieceDetailPage({
+  data,
+  isFavorite,
+  onToggleFavorite,
+  onSubmitComment,
+}) {
   const router = useRouter();
   const { slug } = router.query;
 
@@ -30,6 +35,9 @@ export default function ArtPieceDetailPage({ data, onSubmitComment }) {
         year={year}
         genre={genre}
         onSubmitComment={onSubmitComment}
+        slug={slug}
+        isFavorite={isFavorite}
+        onToggleFavorite={onToggleFavorite}
       />
     </>
   );

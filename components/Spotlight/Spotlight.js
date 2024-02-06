@@ -1,6 +1,7 @@
 import Image from "next/image";
+import FavoriteButton from "../FavoriteButton/FavoriteButton";
 
-export default function Spotlight({ data }) {
+export default function Spotlight({ data, toggleFavorite }) {
   if (!data) {
     return <h1>Loading...</h1>;
   }
@@ -27,6 +28,7 @@ export default function Spotlight({ data }) {
         width={randomPiece.dimensions.width}
       />
       <p>{randomPiece.artist}</p>
+      <FavoriteButton />
     </>
   );
 }
