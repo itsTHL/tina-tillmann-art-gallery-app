@@ -18,11 +18,39 @@ export default function App({ Component, pageProps }) {
 
   // adds data from comments to artPieceInfo-State
   function handleAddComment(comment) {
-    const date = new Date().toLocaleDateString("en-us", {
-      dateStyle: "medium",
-    });
-    const time = (comment.date = date);
-    // setEntries([newEntry, ...entries]);
+
+// adds date and time
+    const now = new Date();
+const dateOptions = {
+  year: "numeric",
+  month: "short",
+  day: "numeric"
+};
+const timeOptions = {
+  hour: "numeric",
+  minute: "2-digit",
+  second: "2-digit"
+};
+
+const formattedDate = now.toLocaleDateString("en-us", dateOptions);
+const formattedTime = now.toLocaleTimeString("en-us", timeOptions);
+
+    comment.date = formattedDate;
+    comment.time = formattedTime; 
+  // sets state
+    setArtPieceInfo(
+// finds artPiece which is commented by slug
+      artPiecesInfo.find((artPieceInfo) =>
+      artPieceInfo.slug === slug
+        ? {
+            ...artPieceInfo,
+            comments: [
+              ...comment,
+          ]
+          }
+        : artPieceInfo
+    )
+  );
     console.log(comment);
   }
 
