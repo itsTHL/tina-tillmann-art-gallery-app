@@ -15,12 +15,11 @@ export default function ArtPiecePreview({
   return (
     <>
       <div className="art-piece-preview__container">
-        <div className="art-piece-preview__btn-container">
-          <FavoriteButton
-            onToggleFavorite={() => onToggleFavorite(slug)}
-            artPiecesInfo={artPiecesInfo}
-          />
-        </div>
+        <FavoriteButton
+          onToggleFavorite={() => onToggleFavorite(slug)}
+          artPiecesInfo={artPiecesInfo}
+          slug={slug}
+        />
         <Link href={`/art-pieces/${slug}`}>
           <Image
             src={image}
