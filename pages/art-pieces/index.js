@@ -4,14 +4,14 @@ export default function ArtPiecesPage({
   data,
   artPiecesInfo,
   onToggleFavorite,
-  isFavorite,
+  colors,
 }) {
   return (
     <ArtPieces
       data={data}
       artPiecesInfo={artPiecesInfo}
       onToggleFavorite={onToggleFavorite}
-      isFavorite={isFavorite}
+      colors={colors}
     />
   );
 }

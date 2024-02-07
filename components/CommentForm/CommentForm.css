@@ -1,0 +1,10 @@
+.form-section {
+}
+
+.comment-form {
+  display: flex;
+  flex-direction: column;
+  margin: 48px auto;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,34 +1,52 @@
 import Image from "next/image";
+import Link from "next/link";
 import FavoriteButton from "../FavoriteButton/FavoriteButton";
+import React, { useState, useEffect } from "react";
 
-export default function Spotlight({ data, toggleFavorite }) {
-  if (!data) {
-    return <h1>Loading...</h1>;
-  }
+export default function Spotlight({
+  data,
+  onToggleFavorite,
+  artPiecesInfo,
+  slug,
+}) {
+  const [randomIndex, setRandomIndex] = useState(null);
+  const [randomPiece, setRandomPiece] = useState(null);
 
-  const min = 0;
-  const max = data.length;
+  useEffect(() => {
+    if (data && data.length > 0) {
+      const min = 0;
+      const max = data.length;
+      const newIndex = getRandomArbitrary(min, max);
+      setRandomIndex(newIndex);
+      setRandomPiece(data[newIndex]);
+    }
+  }, [data]);
 
   function getRandomArbitrary(min, max) {
     const randomIndex = Math.random() * (max - min) + min;
     return Math.floor(randomIndex);
   }
-  const randomIndex = getRandomArbitrary(min, max);
-  const randomPiece = data[randomIndex];
 
-  // The art piece image is displayed 🖼️
-  // The art piece artist is displayed 🖼️
+  if (!randomPiece) {
+    return <h1>Loading...</h1>;
+  }
 
   return (
     <>
-      <Image
-        src={randomPiece.imageSource}
-        alt={`${randomPiece.genre} with title${randomPiece.name}`}
-        height={randomPiece.dimensions.height}
-        width={randomPiece.dimensions.width}
-      />
+      <Link href={`/art-pieces/${randomPiece.slug}`}>
+        <Image
+          src={randomPiece.imageSource}
+          alt={`${randomPiece.genre} with title${randomPiece.name}`}
+          height={randomPiece.dimensions.height}
+          width={randomPiece.dimensions.width}
+        />
+      </Link>
       <p>{randomPiece.artist}</p>
-      <FavoriteButton />
+      <FavoriteButton
+        slug={randomPiece.slug}
+        artPiecesInfo={artPiecesInfo}
+        onToggleFavorite={() => onToggleFavorite(randomPiece.slug)}
+      />
     </>
   );
 }

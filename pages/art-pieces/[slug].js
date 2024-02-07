@@ -4,8 +4,9 @@ import Link from "next/link";
 
 export default function ArtPieceDetailPage({
   data,
-  isFavorite,
   onToggleFavorite,
+  onSubmitComment,
+  artPiecesInfo,
 }) {
   const router = useRouter();
   const { slug } = router.query;
@@ -23,7 +24,7 @@ export default function ArtPieceDetailPage({
     );
   }
 
-  const { imageSource, name, artist, year, genre } = currentArtPiece;
+  const { imageSource, name, artist, year, genre, colors } = currentArtPiece;
 
   return (
     <>
@@ -33,9 +34,11 @@ export default function ArtPieceDetailPage({
         artist={artist}
         year={year}
         genre={genre}
+        onSubmitComment={onSubmitComment}
+        artPiecesInfo={artPiecesInfo}
         slug={slug}
-        isFavorite={isFavorite}
         onToggleFavorite={onToggleFavorite}
+        colors={colors}
       />
     </>
   );

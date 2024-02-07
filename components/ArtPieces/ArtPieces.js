@@ -1,13 +1,9 @@
 import ArtPiecePreview from "@/components/ArtPiecePreview/ArtPiecePreview.js";
 
-export default function ArtPieces({ data, onToggleFavorite, isFavorite }) {
+export default function ArtPieces({ data, artPiecesInfo, onToggleFavorite }) {
   return (
     <ul className="art-pieces-list">
       {data.map((piece) => {
-        // const { isFavorite } = artPiecesInfo.find(
-        //   (artPiece) => artPiece.slug === piece.slug
-        // ) ?? { isFavorite: false };
-
         return (
           <li key={piece.slug}>
             <ArtPiecePreview
@@ -17,8 +13,9 @@ export default function ArtPieces({ data, onToggleFavorite, isFavorite }) {
               artist={piece.artist}
               height={piece.dimensions.height}
               width={piece.dimensions.width}
-              isFavorite={isFavorite}
+              artPiecesInfo={artPiecesInfo}
               onToggleFavorite={onToggleFavorite}
+              colors={piece.colors}
             />
           </li>
         );
