@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import CommentForm from "../CommentForm/CommentForm";
 import Comments from "../Comments/Comments";
 import FavoriteButton from "../FavoriteButton/FavoriteButton";
+import ColorPalette from "../ColorPalette/ColorPalette";
 
 export default function ArtPieceDetails({
   image,
@@ -14,17 +15,19 @@ export default function ArtPieceDetails({
   slug,
   onToggleFavorite,
   artPiecesInfo,
+  colors,
 }) {
   const router = useRouter();
 
   return (
     <>
-      <section className="art-piece-details">
+      <section className="art-piece-details__section">
         <FavoriteButton
           slug={slug}
           artPiecesInfo={artPiecesInfo}
           onToggleFavorite={() => onToggleFavorite(slug)}
         />
+        <ColorPalette colors={colors} />
         <Image
           src={image}
           alt={`${title} by ${artist}`}
@@ -38,7 +41,7 @@ export default function ArtPieceDetails({
           <h3>Genre: {genre}</h3>
         </div>
       </section>
-      <section className="button-section">
+      <section className="button__section">
         <button
           type="button"
           onClick={() => {

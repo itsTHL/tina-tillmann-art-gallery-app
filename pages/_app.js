@@ -10,11 +10,13 @@ import "../components/ArtPieceDetails/ArtPieceDetails.css";
 import "../components/FavoriteButton/FavoriteButton.css";
 import "../components/Comments/Comments.css";
 import "../components/CommentForm/CommentForm.css";
+import "../components/ColorPalette/ColorPalette.css";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 export default function App({ Component, pageProps }) {
   // FETCHING DATA FROM API
+  //
   const { data, error, isLoading } = useSWR(
     "https://example-apis.vercel.app/api/art",
     fetcher
@@ -32,6 +34,9 @@ export default function App({ Component, pageProps }) {
 
   // SETTING STATE FOR FAVORITE COMPONENT
 
+  // TOGGLE FAVORITE
+  // toggles isFavorite property and favorite icon when favorite button is clicked
+  //
   const filteredArtPiecesInfo = artPiecesInfo.filter(
     (artPieceInfoObj) => artPieceInfoObj.isFavorite === true
   );
@@ -66,11 +71,24 @@ export default function App({ Component, pageProps }) {
     });
   }
 
-  if (error) return <h1>failed to load</h1>;
-  if (isLoading) return <h1>loading...</h1>;
+  // FILTER FAVORITES
+  //
+  const filteredArtPiecesInfo = artPiecesInfo.filter(
+    (artPieceInfoObj) => artPieceInfoObj.isFavorite === true
+  );
+  console.log("filtered for is fav: ", filteredArtPiecesInfo);
+
+  const pieces = filteredArtPiecesInfo.map((filteredArtPieces) =>
+    data.find((dataObj) => dataObj.slug === filteredArtPieces.slug)
+  );
+  console.log("pieces: ", pieces);
+
+  // COLOR PALETTE
+  //
 
   //COMMENTS
   // adds data from comments to artPieceInfo-State
+  //
   function handleAddComment(comment, slug) {
     // adds date and time
     const now = new Date();
@@ -126,6 +144,9 @@ export default function App({ Component, pageProps }) {
 
     console.log("my data for comments: ", comment, slug);
   }
+
+  if (error) return <h1>failed to load</h1>;
+  if (isLoading) return <h1>loading...</h1>;
 
   return (
     <>

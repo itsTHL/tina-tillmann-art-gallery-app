@@ -1,0 +1,6 @@
+.color-palette__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 15px;
+}
