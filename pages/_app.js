@@ -30,7 +30,6 @@ export default function App({ Component, pageProps }) {
   const pieces = filteredArtPiecesInfo.map((filteredArtPieces) =>
     data.find((dataObj) => dataObj.slug === filteredArtPieces.slug)
   );
-
   console.log("pieces: ", pieces);
 
   function toggleFavorite(slug) {
@@ -86,19 +85,7 @@ export default function App({ Component, pageProps }) {
     );
 
     // If art piece exists, update its comments. Otherwise, create a new art piece object.
-    /*
-    if (artPiece) {
-      setArtPiecesInfo((prevArtPiecesInfo) =>
-        prevArtPiecesInfo.map((artPieceInfo) =>
-          artPieceInfo.slug === slug
-            ? {
-                ...artPieceInfo,
-                comments: [...artPieceInfo.comments, comment],
-              }
-            : artPieceInfo
-        )
-      );
-*/
+
     if (artPiece) {
       setArtPiecesInfo((prevArtPiecesInfo) =>
         prevArtPiecesInfo.map((artPieceInfo) =>
@@ -135,7 +122,7 @@ export default function App({ Component, pageProps }) {
           data={data}
           onSubmitComment={handleAddComment}
           artPiecesInfo={artPiecesInfo}
-          // pieces={pieces}
+          pieces={pieces}
           onToggleFavorite={toggleFavorite}
         />
       </Layout>
