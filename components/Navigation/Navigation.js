@@ -7,6 +7,7 @@ export default function Navigation() {
     <>
       <nav>
         <button
+          className="nav__btn"
           onClick={() => {
             router.push("/");
           }}
@@ -14,6 +15,7 @@ export default function Navigation() {
           Spotlight
         </button>
         <button
+          className="nav__btn"
           onClick={() => {
             router.push("/art-pieces");
           }}
@@ -21,6 +23,7 @@ export default function Navigation() {
           Gallery
         </button>
         <button
+          className="nav__btn"
           onClick={() => {
             router.push("/favorites");
           }}
