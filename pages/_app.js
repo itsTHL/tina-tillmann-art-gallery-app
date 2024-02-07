@@ -1,5 +1,7 @@
 import useSWR from "swr";
-import { useState } from "react";
+// import { useState } from "react";
+import useLocalStorageState from "use-local-storage-state";
+import { useEffect } from "react";
 import GlobalStyle from "../styles";
 import Layout from "@/components/Layout/Layout";
 import "../components/Navigation/Navigation.css";
@@ -20,14 +22,22 @@ export default function App({ Component, pageProps }) {
     fetcher
   );
 
-  // SETTING STATE FOR FAVORITE COMPONENT
-  //
-  const [artPiecesInfo, setArtPiecesInfo] = useState([]);
+  // INITIALIZING STATE
+  // const [artPiecesInfo, setArtPiecesInfo] = useState([]);
+  const [artPiecesInfo, setArtPiecesInfo] = useLocalStorageState(
+    "artPiecesInfo",
+    {
+      defaultValue: [],
+    }
+  );
   console.log("state: ", artPiecesInfo);
+
+  // SETTING STATE FOR FAVORITE COMPONENT
 
   // TOGGLE FAVORITE
   // toggles isFavorite property and favorite icon when favorite button is clicked
   //
+
   function toggleFavorite(slug) {
     setArtPiecesInfo((artPiecesInfo) => {
       //
@@ -54,6 +64,10 @@ export default function App({ Component, pageProps }) {
     (artPieceInfoObj) => artPieceInfoObj.isFavorite === true
   );
   console.log("filtered for is fav: ", filteredArtPiecesInfo);
+
+  if (!data) {
+    return null;
+  }
 
   const pieces = filteredArtPiecesInfo.map((filteredArtPieces) =>
     data.find((dataObj) => dataObj.slug === filteredArtPieces.slug)
