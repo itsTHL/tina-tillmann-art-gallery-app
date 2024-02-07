@@ -1,0 +1,8 @@
+.form-section {
+  background-color: hotpink;
+}
+
+.comment-form {
+  display: flex;
+  flex-direction: column;
+}

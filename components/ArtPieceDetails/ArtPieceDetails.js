@@ -1,5 +1,7 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
+import CommentForm from "../CommentForm/CommentForm";
+import Comments from "../Comments/Comments";
 import FavoriteButton from "../FavoriteButton/FavoriteButton";
 
 export default function ArtPieceDetails({
@@ -8,12 +10,13 @@ export default function ArtPieceDetails({
   artist,
   year,
   genre,
+  onSubmitComment,
   slug,
   onToggleFavorite,
   artPiecesInfo,
 }) {
   const router = useRouter();
-  console.log(isFavorite);
+
   return (
     <>
       <section className="art-piece-details">
@@ -45,6 +48,8 @@ export default function ArtPieceDetails({
           Back to the art gallery
         </button>
       </section>
+      <CommentForm onSubmitComment={onSubmitComment} slug={slug} />
+      <Comments artPiecesInfo={artPiecesInfo} />
     </>
   );
 }
