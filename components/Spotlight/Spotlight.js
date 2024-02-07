@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import FavoriteButton from "../FavoriteButton/FavoriteButton";
 import React, { useState, useEffect } from "react";
 
@@ -32,12 +33,14 @@ export default function Spotlight({
 
   return (
     <>
-      <Image
-        src={randomPiece.imageSource}
-        alt={`${randomPiece.genre} with title${randomPiece.name}`}
-        height={randomPiece.dimensions.height}
-        width={randomPiece.dimensions.width}
-      />
+      <Link href={`/art-pieces/${randomPiece.slug}`}>
+        <Image
+          src={randomPiece.imageSource}
+          alt={`${randomPiece.genre} with title${randomPiece.name}`}
+          height={randomPiece.dimensions.height}
+          width={randomPiece.dimensions.width}
+        />
+      </Link>
       <p>{randomPiece.artist}</p>
       <FavoriteButton
         slug={randomPiece.slug}
