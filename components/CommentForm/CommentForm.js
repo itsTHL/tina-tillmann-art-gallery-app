@@ -10,11 +10,13 @@ export default function CommentForm({ onSubmitComment, slug }) {
   }
 
   return (
-    <form onSubmit={handleSubmitComment}>
-      <label htmlFor="comment">Comment</label>
-      <textarea type="text" rows="5" cols="33" id="comment" name="comment" />
-      <button type="submit">Send</button>
-    </form>
+    <section className="form-section">
+      <form className="commentForm" onSubmit={handleSubmitComment}>
+        <label htmlFor="comment">Comment</label>
+        <textarea type="text" rows="5" cols="33" id="comment" name="comment" />
+        <button type="submit">Send</button>
+      </form>
+    </section>
   );
 }
 
