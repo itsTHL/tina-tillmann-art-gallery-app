@@ -15,6 +15,7 @@ export default function ArtPieces({ data, artPiecesInfo, onToggleFavorite }) {
               width={piece.dimensions.width}
               artPiecesInfo={artPiecesInfo}
               onToggleFavorite={onToggleFavorite}
+              colors={piece.colors}
             />
           </li>
         );

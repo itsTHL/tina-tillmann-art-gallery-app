@@ -24,7 +24,7 @@ export default function ArtPieceDetailPage({
     );
   }
 
-  const { imageSource, name, artist, year, genre } = currentArtPiece;
+  const { imageSource, name, artist, year, genre, colors } = currentArtPiece;
 
   return (
     <>
@@ -38,6 +38,7 @@ export default function ArtPieceDetailPage({
         artPiecesInfo={artPiecesInfo}
         slug={slug}
         onToggleFavorite={onToggleFavorite}
+        colors={colors}
       />
     </>
   );
