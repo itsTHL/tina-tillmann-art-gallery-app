@@ -12,8 +12,11 @@ export default function Comments({ artPiecesInfo }) {
   console.log("comments as an array?", comments);
   if (comments && Array.isArray(comments) && comments.length > 0) {
     // Destructure 'comments' to directly access the 'comments' array
-    const [{ comments: commentsArray }] = comments;
 
+    const [{ comments: commentsArray }] = comments;
+    if (!commentsArray) {
+      return;
+    }
     // Now you can work with the 'commentsArray'
     console.log("the comments array destructured:", commentsArray);
 

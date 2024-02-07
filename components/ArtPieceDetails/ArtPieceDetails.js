@@ -16,7 +16,7 @@ export default function ArtPieceDetails({
   artPiecesInfo,
 }) {
   const router = useRouter();
-  console.log(isFavorite);
+
   return (
     <>
       <section className="art-piece-details">
