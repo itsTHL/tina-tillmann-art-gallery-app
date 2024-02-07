@@ -38,6 +38,7 @@ export default function Spotlight({
           slug={randomPiece.slug}
           artPiecesInfo={artPiecesInfo}
           onToggleFavorite={() => onToggleFavorite(randomPiece.slug)}
+          className="spotlight__fav-btn"
         />
         <Link href={`/art-pieces/${randomPiece.slug}`}>
           <Image

@@ -22,19 +22,20 @@ export default function ArtPieceDetails({
   return (
     <>
       <section className="art-piece-details__section">
-        <FavoriteButton
-          slug={slug}
-          artPiecesInfo={artPiecesInfo}
-          onToggleFavorite={() => onToggleFavorite(slug)}
-        />
         <ColorPalette colors={colors} />
         <Image
           src={image}
           alt={`${title} by ${artist}`}
           width="300"
-          height="300"
+          height="600"
+          className="details-page__img"
         />
         <div className="details-container">
+          <FavoriteButton
+            slug={slug}
+            artPiecesInfo={artPiecesInfo}
+            onToggleFavorite={() => onToggleFavorite(slug)}
+          />
           <h3>Title: {title}</h3>
           <h3>Artist: {artist}</h3>
           <h3>Year: {year}</h3>
@@ -43,6 +44,7 @@ export default function ArtPieceDetails({
       </section>
       <section className="button__section">
         <button
+          className="details-page__btn"
           type="button"
           onClick={() => {
             router.push("/art-pieces");

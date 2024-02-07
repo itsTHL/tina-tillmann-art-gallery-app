@@ -14,7 +14,9 @@ export default function CommentForm({ onSubmitComment, slug }) {
       <form className="comment-form" onSubmit={handleSubmitComment}>
         <label htmlFor="comment">Comment</label>
         <textarea type="text" rows="5" cols="33" id="comment" name="comment" />
-        <button type="submit">Send</button>
+        <button className="comment-form__btn" type="submit">
+          Send
+        </button>
       </form>
     </section>
   );

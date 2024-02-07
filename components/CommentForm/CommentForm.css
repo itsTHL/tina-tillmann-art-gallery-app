@@ -8,3 +8,18 @@
   justify-content: center;
   align-items: center;
 }
+
+.comment-form__btn {
+  padding: 1rem;
+  background-color: transparent;
+  border: none;
+  font-weight: bold;
+  font-size: 0.8rem;
+  transition: linear 0.3s;
+  border-bottom: 1px solid grey;
+}
+
+.comment-form__btn:hover {
+  border-bottom: 1px solid lightsteelblue;
+  font-size: 0.83rem;
+}

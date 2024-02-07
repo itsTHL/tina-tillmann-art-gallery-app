@@ -17,7 +17,7 @@
   box-shadow: 10px 5px 5px grey;
 }
 
-.spotlight__container button {
+.spotlight__fav-btn {
   position: absolute;
   top: -25px;
   right: 50%;

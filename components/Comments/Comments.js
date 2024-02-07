@@ -48,7 +48,7 @@ export default function Comments({ artPiecesInfo }) {
     console.log("Comments are empty or not in the expected format");
     return (
       <div className="comments-container">
-        <h1>Be the first to comment</h1>
+        <h3>Be the first to comment</h3>
       </div>
     );
   }
