@@ -7,6 +7,7 @@ export default function ArtPieceDetailPage({
   isFavorite,
   onToggleFavorite,
   onSubmitComment,
+  artPiecesInfo,
 }) {
   const router = useRouter();
   const { slug } = router.query;
@@ -35,6 +36,7 @@ export default function ArtPieceDetailPage({
         year={year}
         genre={genre}
         onSubmitComment={onSubmitComment}
+        artPiecesInfo={artPiecesInfo}
         slug={slug}
         isFavorite={isFavorite}
         onToggleFavorite={onToggleFavorite}

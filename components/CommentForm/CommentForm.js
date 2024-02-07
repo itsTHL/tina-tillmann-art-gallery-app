@@ -1,11 +1,11 @@
-export default function CommentForm({ onSubmitComment }) {
+export default function CommentForm({ onSubmitComment, slug }) {
   function handleSubmitComment(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
     const dataObject = { comment: data.comment };
-    onSubmitComment(dataObject);
-    console.log(dataObject);
+    onSubmitComment(dataObject, slug);
+    console.log("Data object in CommentForm component: ", dataObject);
     event.target.reset();
   }
 
