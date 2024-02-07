@@ -37,19 +37,6 @@ export default function App({ Component, pageProps }) {
   // TOGGLE FAVORITE
   // toggles isFavorite property and favorite icon when favorite button is clicked
   //
-  const filteredArtPiecesInfo = artPiecesInfo.filter(
-    (artPieceInfoObj) => artPieceInfoObj.isFavorite === true
-  );
-  console.log("filtered for is fav: ", filteredArtPiecesInfo);
-
-  if (!data) {
-    return null;
-  }
-
-  const pieces = filteredArtPiecesInfo.map((filteredArtPieces) =>
-    data.find((dataObj) => dataObj.slug === filteredArtPieces.slug)
-  );
-  console.log("pieces: ", pieces);
 
   function toggleFavorite(slug) {
     setArtPiecesInfo((artPiecesInfo) => {
@@ -77,6 +64,10 @@ export default function App({ Component, pageProps }) {
     (artPieceInfoObj) => artPieceInfoObj.isFavorite === true
   );
   console.log("filtered for is fav: ", filteredArtPiecesInfo);
+
+  if (!data) {
+    return null;
+  }
 
   const pieces = filteredArtPiecesInfo.map((filteredArtPieces) =>
     data.find((dataObj) => dataObj.slug === filteredArtPieces.slug)
