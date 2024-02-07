@@ -1,7 +1,7 @@
 .comments-container {
   display: flex;
   flex-direction: column;
-  background-color: yellow;
+
   justify-content: center;
   align-items: center;
 }
@@ -10,7 +10,7 @@
   margin: 48px auto;
   justify-content: center;
   align-items: center;
-  background-color: red;
+  border: 0.5px solid lightsteelblue;
   padding: 16px;
 }
 
