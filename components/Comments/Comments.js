@@ -15,7 +15,11 @@ export default function Comments({ artPiecesInfo }) {
 
     const [{ comments: commentsArray }] = comments;
     if (!commentsArray) {
-      return;
+      return (
+        <div className="comments-container">
+          <h1>Be the first to comment</h1>
+        </div>
+      );
     }
     // Now you can work with the 'commentsArray'
     console.log("the comments array destructured:", commentsArray);
@@ -49,38 +53,3 @@ export default function Comments({ artPiecesInfo }) {
     );
   }
 }
-
-//     if (commentsArray.length > 0) {
-//       return (
-//         <div>
-//           {/* Iterate over the 'commentsArray' array */}
-//           {commentsArray.map((commentObj, index) => (
-//             <div key={index}>
-//               <h2>Slug: {commentObj.slug}</h2>
-//               {/* Iterate over the 'comments' array within each 'commentObj' */}
-//               {commentObj.comments.map((comment, innerIndex) => (
-//                 <div key={innerIndex}>
-//                   <p>Comment: {comment}</p>
-//                 </div>
-//               ))}
-//             </div>
-//           ))}
-//         </div>
-//       );
-//     }
-// }
-
-//     return (
-//       <>
-//         <h1>COMMENTS</h1>
-//         {comments.map((comment, index) => (
-//           <div key={index}>
-//             <h1>{comment.date}</h1>
-//             <p>{comment.comment}</p>
-//           </div>
-//         ))}
-//       </>
-//     );
-//   } else {
-//     return null;
-//   }
