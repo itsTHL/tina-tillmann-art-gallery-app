@@ -5,6 +5,7 @@ import Link from "next/link";
 export default function ArtPieceDetailPage({
   data,
   onToggleFavorite,
+  onSubmitComment,
   artPiecesInfo,
 }) {
   const router = useRouter();
@@ -33,8 +34,9 @@ export default function ArtPieceDetailPage({
         artist={artist}
         year={year}
         genre={genre}
-        slug={slug}
+        onSubmitComment={onSubmitComment}
         artPiecesInfo={artPiecesInfo}
+        slug={slug}
         onToggleFavorite={onToggleFavorite}
       />
     </>
