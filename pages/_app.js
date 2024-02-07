@@ -12,6 +12,7 @@ import "../components/FavoriteButton/FavoriteButton.css";
 import "../components/Comments/Comments.css";
 import "../components/CommentForm/CommentForm.css";
 import "../components/ColorPalette/ColorPalette.css";
+import "../components/Spotlight/Spotlight.css";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 

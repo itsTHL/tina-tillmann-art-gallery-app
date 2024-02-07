@@ -33,20 +33,23 @@ export default function Spotlight({
 
   return (
     <>
-      <Link href={`/art-pieces/${randomPiece.slug}`}>
-        <Image
-          src={randomPiece.imageSource}
-          alt={`${randomPiece.genre} with title${randomPiece.name}`}
-          height={randomPiece.dimensions.height}
-          width={randomPiece.dimensions.width}
+      <div className="spotlight__container">
+        <FavoriteButton
+          slug={randomPiece.slug}
+          artPiecesInfo={artPiecesInfo}
+          onToggleFavorite={() => onToggleFavorite(randomPiece.slug)}
         />
-      </Link>
-      <p>{randomPiece.artist}</p>
-      <FavoriteButton
-        slug={randomPiece.slug}
-        artPiecesInfo={artPiecesInfo}
-        onToggleFavorite={() => onToggleFavorite(randomPiece.slug)}
-      />
+        <Link href={`/art-pieces/${randomPiece.slug}`}>
+          <Image
+            src={randomPiece.imageSource}
+            alt={`${randomPiece.genre} with title${randomPiece.name}`}
+            height={randomPiece.dimensions.height}
+            width={randomPiece.dimensions.width}
+            className="spotlight__image"
+          />
+        </Link>
+        <p>{randomPiece.artist}</p>
+      </div>
     </>
   );
 }
