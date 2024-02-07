@@ -1,0 +1,19 @@
+.comments-container {
+  display: flex;
+  flex-direction: column;
+  background-color: yellow;
+  justify-content: center;
+  align-items: center;
+}
+
+.comment-container {
+  margin: 48px auto;
+  justify-content: center;
+  align-items: center;
+  background-color: red;
+  padding: 16px;
+}
+
+.datetime-stamp {
+  font-size: 0.8rem;
+}

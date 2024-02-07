@@ -24,14 +24,16 @@ export default function Comments({ artPiecesInfo }) {
     // console.log("strigyfied: ", commentsJSON);
     return (
       <>
-        <div>
+        <div className="comments-container">
           <h1>Comments</h1>
           {/* Iterate over the 'commentsArray' array */}
           {commentsArray.map((commentObj, index) => (
-            <div key={index}>
-              <p>Comment: {JSON.stringify(commentObj.comment)}</p>
-              <p>date: {JSON.stringify(commentObj.date)}</p>
-              <p>date: {JSON.stringify(commentObj.time)}</p>
+            <div className="comment-container" key={index}>
+              <p className="datetime-stamp">
+                date: {JSON.parse(JSON.stringify(commentObj.date))} / time:
+                {JSON.parse(JSON.stringify(commentObj.time))}
+              </p>
+              <p>{JSON.parse(JSON.stringify(commentObj.comment))}</p>
             </div>
           ))}
         </div>
@@ -40,7 +42,11 @@ export default function Comments({ artPiecesInfo }) {
   } else {
     // Handle the case when 'comments' is empty or not an array
     console.log("Comments are empty or not in the expected format");
-    return <h1>Be the first to comment</h1>;
+    return (
+      <div className="comments-container">
+        <h1>Be the first to comment</h1>
+      </div>
+    );
   }
 }
 
