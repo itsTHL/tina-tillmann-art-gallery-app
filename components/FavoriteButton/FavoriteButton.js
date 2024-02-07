@@ -10,9 +10,7 @@ export default function FavoriteButton({
     isFavorite: false,
   };
   const isFavorite = artPiece.isFavorite;
-  console.log("artPiece on is fav btn: "), artPiece;
-  console.log("slug on is fav btn: ", slug);
-  console.log("is fav on btn comp: ", isFavorite);
+
   return (
     <>
       <button

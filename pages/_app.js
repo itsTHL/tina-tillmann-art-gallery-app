@@ -22,9 +22,15 @@ export default function App({ Component, pageProps }) {
   const [artPiecesInfo, setArtPiecesInfo] = useState([]);
   console.log("state: ", artPiecesInfo);
 
-  const pieces = artPiecesInfo.filter(
-    (artPieceObj) => artPieceObj.isFavorite === true
+  const filteredArtPiecesInfo = artPiecesInfo.filter(
+    (artPieceInfoObj) => artPieceInfoObj.isFavorite === true
   );
+  console.log("filtered for is fav: ", filteredArtPiecesInfo);
+
+  const pieces = filteredArtPiecesInfo.map((filteredArtPieces) =>
+    data.find((dataObj) => dataObj.slug === filteredArtPieces.slug)
+  );
+
   console.log("pieces: ", pieces);
 
   function toggleFavorite(slug) {
@@ -129,7 +135,7 @@ export default function App({ Component, pageProps }) {
           data={data}
           onSubmitComment={handleAddComment}
           artPiecesInfo={artPiecesInfo}
-          pieces={pieces}
+          // pieces={pieces}
           onToggleFavorite={toggleFavorite}
         />
       </Layout>
