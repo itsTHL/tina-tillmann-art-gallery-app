@@ -1,4 +1,4 @@
-import ArtPiecePreview from "@/components/ArtPiecePreview";
+import ArtPiecePreview from "@/components/ArtPiecePreview/ArtPiecePreview.js";
 
 export default function ArtPieces({ data, artPiecesInfo, onToggleFavorite }) {
   return (

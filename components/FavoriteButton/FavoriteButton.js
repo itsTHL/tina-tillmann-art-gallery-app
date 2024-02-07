@@ -1,4 +1,3 @@
-// import EmptyStar from "../../resources/assets/star_empty.png";
 import Image from "next/image";
 
 export default function FavoriteButton({

@@ -1,0 +1,56 @@
+.art-piece-preview__container {
+  display: flex;
+  /* flex-direction: column; */
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  max-width: 250px;
+  max-height: 400px;
+  position: relative;
+  margin: 50px 0;
+}
+
+.art-piece-preview__container button {
+  position: absolute;
+  top: -25px;
+  right: 0px;
+  width: 50px;
+  height: 50px;
+  z-index: 2;
+  box-shadow: ;
+}
+
+.art-piece-preview__img {
+  width: 90%;
+  height: 90%;
+  border-radius: 10px;
+}
+
+.art-piece-preview__inner-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 90%;
+  height: 100%;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  visibility: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+  text-align: center;
+}
+
+.art-piece-preview__container:hover .art-piece-preview__inner-container {
+  visibility: visible;
+  opacity: 0.75;
+}
+
+.art-piece-preview__title,
+.art-piece-preview__artist {
+  font-weight: bold;
+  color: black;
+}
